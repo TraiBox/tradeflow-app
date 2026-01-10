@@ -483,7 +483,10 @@ export default function Compliance() {
                       </div>
                       <p className="text-sm text-white">{run.trade_id}</p>
                       <p className="text-xs text-slate-500 mt-1">
-                        {format(new Date(run.created_date), "MMM d, h:mm a")}
+                        {run.created_date && !isNaN(new Date(run.created_date))
+                          ? format(new Date(run.created_date), "MMM d, h:mm a")
+                          : "Recently"
+                        }
                       </p>
                     </div>
                   ))}

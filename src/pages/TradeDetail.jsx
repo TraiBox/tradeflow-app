@@ -216,7 +216,12 @@ export default function TradeDetail() {
                       <div className="flex items-center gap-2 text-slate-400 text-xs mb-2">
                         <Calendar className="w-3 h-3" /> Shipping Date
                       </div>
-                      <p className="text-white">{format(new Date(trade.shipping_date), "MMM d, yyyy")}</p>
+                      <p className="text-white">
+                        {trade.shipping_date && !isNaN(new Date(trade.shipping_date))
+                          ? format(new Date(trade.shipping_date), "MMM d, yyyy")
+                          : "TBD"
+                        }
+                      </p>
                     </div>
                   )}
                   {trade.delivery_date && (
@@ -224,7 +229,12 @@ export default function TradeDetail() {
                       <div className="flex items-center gap-2 text-slate-400 text-xs mb-2">
                         <Truck className="w-3 h-3" /> Delivery Date
                       </div>
-                      <p className="text-white">{format(new Date(trade.delivery_date), "MMM d, yyyy")}</p>
+                      <p className="text-white">
+                        {trade.delivery_date && !isNaN(new Date(trade.delivery_date))
+                          ? format(new Date(trade.delivery_date), "MMM d, yyyy")
+                          : "TBD"
+                        }
+                      </p>
                     </div>
                   )}
                 </div>
@@ -353,7 +363,10 @@ export default function TradeDetail() {
                           {event.event_type.replace(/\./g, " ").replace(/_/g, " ")}
                         </p>
                         <p className="text-xs text-slate-500 mt-1">
-                          {format(new Date(event.created_date), "MMM d, h:mm a")}
+                          {event.created_date && !isNaN(new Date(event.created_date))
+                            ? format(new Date(event.created_date), "MMM d, h:mm a")
+                            : "Recently"
+                          }
                         </p>
                       </div>
                     </div>

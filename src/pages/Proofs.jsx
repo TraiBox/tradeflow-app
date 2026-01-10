@@ -635,7 +635,12 @@ export default function Proofs() {
                         {verifyResult.bundle && (
                           <div className="mt-4 pt-4 border-t border-slate-700 space-y-2">
                             <p className="text-slate-400 text-xs">Trade: <span className="text-white">{verifyResult.bundle.trade_id}</span></p>
-                            <p className="text-slate-400 text-xs">Created: <span className="text-white">{format(new Date(verifyResult.bundle.created_date), "MMM d, yyyy h:mm a")}</span></p>
+                            <p className="text-slate-400 text-xs">Created: <span className="text-white">
+                              {verifyResult.bundle.created_date && !isNaN(new Date(verifyResult.bundle.created_date))
+                                ? format(new Date(verifyResult.bundle.created_date), "MMM d, yyyy h:mm a")
+                                : "Recently"
+                              }
+                            </span></p>
                             <p className="text-slate-400 text-xs">Artifacts: <span className="text-white">{verifyResult.bundle.artifacts?.length || 0}</span></p>
                           </div>
                         )}
@@ -684,7 +689,12 @@ export default function Proofs() {
                       </div>
                       <div className="flex items-center justify-between text-sm">
                         <span className="text-slate-500">{bundle.artifacts?.length || 0} artifacts</span>
-                        <span className="text-slate-500">{format(new Date(bundle.created_date), "MMM d, yyyy")}</span>
+                        <span className="text-slate-500">
+                          {bundle.created_date && !isNaN(new Date(bundle.created_date))
+                            ? format(new Date(bundle.created_date), "MMM d, yyyy")
+                            : "Recently"
+                          }
+                        </span>
                       </div>
                       <div className="mt-3 pt-3 border-t border-slate-700">
                         <p className="text-slate-500 text-xs">Merkle Root</p>

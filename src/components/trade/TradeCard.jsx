@@ -70,7 +70,10 @@ export default function TradeCard({ trade }) {
             <div className="flex items-center gap-2 text-sm">
               <Calendar className="w-4 h-4 text-slate-500" />
               <span className="text-slate-400">
-                {format(new Date(trade.shipping_date), "MMM d, yyyy")}
+                {trade.shipping_date && !isNaN(new Date(trade.shipping_date)) 
+                  ? format(new Date(trade.shipping_date), "MMM d, yyyy")
+                  : "TBD"
+                }
               </span>
             </div>
           )}
@@ -98,7 +101,7 @@ export default function TradeCard({ trade }) {
 
         <div className="flex items-center justify-between pt-4 border-t border-slate-800">
           <p className="text-xs text-slate-500">
-            Created {format(new Date(trade.created_date), "MMM d, yyyy")}
+            {trade.created_date ? `Created ${format(new Date(trade.created_date), "MMM d, yyyy")}` : "Created recently"}
           </p>
           <Link to={createPageUrl(`TradeDetail?id=${trade.id}`)}>
             <Button 

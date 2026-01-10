@@ -474,7 +474,10 @@ export default function Payments() {
                   <div className="p-4 bg-slate-800/50 rounded-lg">
                     <p className="text-slate-400 text-xs">Executed At</p>
                     <p className="text-white">
-                      {format(new Date(tradePayment.executed_at), "MMM d, yyyy h:mm a")}
+                      {tradePayment.executed_at && !isNaN(new Date(tradePayment.executed_at))
+                        ? format(new Date(tradePayment.executed_at), "MMM d, yyyy h:mm a")
+                        : "Recently"
+                      }
                     </p>
                   </div>
                 </div>
@@ -541,7 +544,10 @@ export default function Payments() {
                         {formatCurrency(payment.amount, payment.currency)}
                       </p>
                       <p className="text-xs text-slate-500 mt-1">
-                        {format(new Date(payment.created_date), "MMM d, h:mm a")}
+                        {payment.created_date && !isNaN(new Date(payment.created_date))
+                          ? format(new Date(payment.created_date), "MMM d, h:mm a")
+                          : "Recently"
+                        }
                       </p>
                     </div>
                   ))}
