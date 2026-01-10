@@ -3,6 +3,8 @@ import TradeAssistant from './pages/TradeAssistant';
 import TradeDetail from './pages/TradeDetail';
 import Compliance from './pages/Compliance';
 import Finance from './pages/Finance';
+import Payments from './pages/Payments';
+import Proofs from './pages/Proofs';
 import __Layout from './Layout.jsx';
 
 
@@ -12,6 +14,8 @@ export const PAGES = {
     "TradeDetail": TradeDetail,
     "Compliance": Compliance,
     "Finance": Finance,
+    "Payments": Payments,
+    "Proofs": Proofs,
 }
 
 export const pagesConfig = {
