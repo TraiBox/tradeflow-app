@@ -1,0 +1,86 @@
+{
+  "name": "FinanceOffer",
+  "type": "object",
+  "properties": {
+    "offer_id": {
+      "type": "string"
+    },
+    "trade_id": {
+      "type": "string"
+    },
+    "provider_name": {
+      "type": "string"
+    },
+    "provider_logo": {
+      "type": "string"
+    },
+    "finance_type": {
+      "type": "string",
+      "enum": [
+        "letter_of_credit",
+        "trade_credit",
+        "supply_chain_finance",
+        "factoring",
+        "forfaiting"
+      ]
+    },
+    "amount": {
+      "type": "number"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "interest_rate": {
+      "type": "number"
+    },
+    "term_days": {
+      "type": "number"
+    },
+    "total_cost": {
+      "type": "number"
+    },
+    "fees": {
+      "type": "object",
+      "properties": {
+        "arrangement_fee": {
+          "type": "number"
+        },
+        "commitment_fee": {
+          "type": "number"
+        },
+        "other_fees": {
+          "type": "number"
+        }
+      }
+    },
+    "stf_certified": {
+      "type": "boolean",
+      "description": "Sustainable Trade Finance certified"
+    },
+    "stf_details": {
+      "type": "object"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "available",
+        "accepted",
+        "rejected",
+        "expired"
+      ],
+      "default": "available"
+    },
+    "valid_until": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "terms_conditions": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "offer_id",
+    "trade_id",
+    "provider_name"
+  ]
+}

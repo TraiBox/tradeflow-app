@@ -1,0 +1,69 @@
+{
+  "name": "ProofBundle",
+  "type": "object",
+  "properties": {
+    "bundle_id": {
+      "type": "string"
+    },
+    "trade_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "generating",
+        "ready",
+        "verified",
+        "tampered"
+      ],
+      "default": "generating"
+    },
+    "merkle_root": {
+      "type": "string"
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "artifact_id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "hash": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "manifest": {
+      "type": "object"
+    },
+    "merkle_tree": {
+      "type": "object"
+    },
+    "anchor_info": {
+      "type": "object",
+      "description": "Future blockchain anchor data"
+    },
+    "bundle_hash": {
+      "type": "string"
+    },
+    "download_url": {
+      "type": "string"
+    },
+    "verified_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "bundle_id",
+    "trade_id"
+  ]
+}

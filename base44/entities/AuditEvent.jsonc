@@ -1,0 +1,56 @@
+{
+  "name": "AuditEvent",
+  "type": "object",
+  "properties": {
+    "event_id": {
+      "type": "string"
+    },
+    "trade_id": {
+      "type": "string"
+    },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "trade.created",
+        "trade.updated",
+        "trade.plan.generated",
+        "compliance.started",
+        "compliance.completed",
+        "finance.offers.requested",
+        "finance.offers.ready",
+        "finance.offer.accepted",
+        "payment.route.calculated",
+        "payment.executing",
+        "payment.executed",
+        "payment.failed",
+        "ledger.bundle.generating",
+        "ledger.bundle.ready",
+        "ledger.verified"
+      ]
+    },
+    "actor_email": {
+      "type": "string"
+    },
+    "actor_role": {
+      "type": "string"
+    },
+    "details": {
+      "type": "object"
+    },
+    "previous_hash": {
+      "type": "string",
+      "description": "Hash of previous audit event for chain integrity"
+    },
+    "event_hash": {
+      "type": "string",
+      "description": "SHA-256 hash of this event"
+    },
+    "idempotency_key": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "event_id",
+    "event_type"
+  ]
+}

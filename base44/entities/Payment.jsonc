@@ -1,0 +1,97 @@
+{
+  "name": "Payment",
+  "type": "object",
+  "properties": {
+    "payment_id": {
+      "type": "string"
+    },
+    "trade_id": {
+      "type": "string"
+    },
+    "finance_offer_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "route_calculated",
+        "executing",
+        "completed",
+        "failed"
+      ],
+      "default": "pending"
+    },
+    "amount": {
+      "type": "number"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "sender": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "bank": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "account_hash": {
+          "type": "string"
+        }
+      }
+    },
+    "recipient": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "bank": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "account_hash": {
+          "type": "string"
+        }
+      }
+    },
+    "route": {
+      "type": "object",
+      "properties": {
+        "steps": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "estimated_duration": {
+          "type": "string"
+        },
+        "total_fees": {
+          "type": "number"
+        }
+      }
+    },
+    "executed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "confirmation_code": {
+      "type": "string"
+    },
+    "failure_reason": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "payment_id",
+    "trade_id"
+  ]
+}

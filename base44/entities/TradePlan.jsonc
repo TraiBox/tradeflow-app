@@ -1,0 +1,53 @@
+{
+  "name": "TradePlan",
+  "type": "object",
+  "properties": {
+    "trade_id": {
+      "type": "string"
+    },
+    "raw_input": {
+      "type": "string",
+      "description": "Original user input from chat"
+    },
+    "parsed_data": {
+      "type": "object",
+      "description": "Structured trade data extracted from input"
+    },
+    "confidence_score": {
+      "type": "number",
+      "description": "AI confidence in parsing (0-100)"
+    },
+    "pending_questions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "reasoning": {
+      "type": "string",
+      "description": "AI explanation of the trade plan"
+    },
+    "suggested_incoterm": {
+      "type": "string"
+    },
+    "risk_factors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "confirmed",
+        "revised"
+      ],
+      "default": "draft"
+    }
+  },
+  "required": [
+    "trade_id",
+    "raw_input"
+  ]
+}

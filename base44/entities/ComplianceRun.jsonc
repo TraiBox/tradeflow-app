@@ -1,0 +1,76 @@
+{
+  "name": "ComplianceRun",
+  "type": "object",
+  "properties": {
+    "trade_id": {
+      "type": "string"
+    },
+    "run_id": {
+      "type": "string",
+      "description": "Unique compliance run identifier"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "running",
+        "passed",
+        "warnings",
+        "failed"
+      ],
+      "default": "pending"
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "check_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "sanctions_check": {
+      "type": "object"
+    },
+    "export_control_check": {
+      "type": "object"
+    },
+    "country_risk_check": {
+      "type": "object"
+    },
+    "product_restriction_check": {
+      "type": "object"
+    },
+    "overall_risk_score": {
+      "type": "number"
+    },
+    "report_url": {
+      "type": "string"
+    },
+    "completed_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "trade_id",
+    "run_id"
+  ]
+}
